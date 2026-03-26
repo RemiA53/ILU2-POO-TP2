@@ -17,20 +17,20 @@ public class BoundaryLibererEtal {
 			String[] donnesEtals = controlLibererEtal.libererEtal(nomVendeur);
 			boolean etalOccupe = Boolean.valueOf(donnesEtals[0]);
 			if (etalOccupe) {
-				StringBuilder chaineLibererEtal = new StringBuilder();
-				chaineLibererEtal.append("Vous avez vendu ");
-				chaineLibererEtal.append(donnesEtals[4]);
-				chaineLibererEtal.append(" sur ");
-				chaineLibererEtal.append(donnesEtals[3]);
-				chaineLibererEtal.append(" ");
-				chaineLibererEtal.append(donnesEtals[2]);
-				chaineLibererEtal.append(".");
-				System.out.println(chaineLibererEtal);
-				StringBuilder chaineFinLibererEtal = new StringBuilder();
-				chaineFinLibererEtal.append("En revoir ");
-				chaineFinLibererEtal.append(nomVendeur);
-				chaineFinLibererEtal.append(", passez une bonne journée");
-				System.out.println(chaineFinLibererEtal);
+				StringBuilder chaine = new StringBuilder();
+				chaine.append("Vous avez vendu ");
+				chaine.append(donnesEtals[4]);
+				chaine.append(" sur ");
+				chaine.append(donnesEtals[3]);
+				chaine.append(" ");
+				chaine.append(donnesEtals[2]);
+				chaine.append(".");
+				System.out.println(chaine);
+				chaine.setLength(0);
+				chaine.append("En revoir ");
+				chaine.append(nomVendeur);
+				chaine.append(", passez une bonne journée");
+				System.out.println(chaine);
 			}
 		}
 	}

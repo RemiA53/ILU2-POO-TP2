@@ -17,7 +17,7 @@ import frontiere.BoundaryLibererEtal;
 import frontiere.BoundaryPrendreEtal;
 import personnages.Chef;
 import villagegaulois.Village;
-
+//TODO reset les SB
 public class Scenario {
 
 	public static void main(String[] args) {

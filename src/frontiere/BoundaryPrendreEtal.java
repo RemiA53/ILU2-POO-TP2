@@ -12,24 +12,25 @@ public class BoundaryPrendreEtal {
 	public void prendreEtal(String nomVendeur) {
 		boolean NomVendeurConnu = controlPrendreEtal.verifierIdentite(nomVendeur);
 		if (!NomVendeurConnu) {
-			StringBuilder chaineVendeurInconnu = new StringBuilder();
-			chaineVendeurInconnu.append("Je suis désolée ");
-			chaineVendeurInconnu.append(nomVendeur);
-			chaineVendeurInconnu.append(" mais il faut être un habitant de notre village pour commercer ici.");
-			System.out.println(chaineVendeurInconnu);
+			StringBuilder chaine = new StringBuilder();
+			chaine.append("Je suis désolée ");
+			chaine.append(nomVendeur);
+			chaine.append(" mais il faut être un habitant de notre village pour commercer ici.");
+			System.out.println(chaine);
+			chaine.setLength(0);
 		} else {
-			StringBuilder chaineVendeurConnu = new StringBuilder();
-			chaineVendeurConnu.append("Bonjour ");
-			chaineVendeurConnu.append(nomVendeur);
-			chaineVendeurConnu.append(", je vais regarder si je peux vous trouver un étal.");
-			System.out.println(chaineVendeurConnu);
+			StringBuilder chaine = new StringBuilder();
+			chaine.append("Bonjour ");
+			chaine.append(nomVendeur);
+			chaine.append(", je vais regarder si je peux vous trouver un étal.");
+			System.out.println(chaine);
+			chaine.setLength(0);
 			boolean etalDisponible = controlPrendreEtal.resteEtals();
 			if (!etalDisponible) {
-				StringBuilder chaineEtalIndisponible = new StringBuilder();
-				chaineEtalIndisponible.append("Désolée ");
-				chaineEtalIndisponible.append(nomVendeur);
-				chaineEtalIndisponible.append(" je n'ai plus d'étal qui ne soit pas déjà occupé.");
-				System.out.println(chaineEtalIndisponible);
+				chaine.append("Désolée ");
+				chaine.append(nomVendeur);
+				chaine.append(" je n'ai plus d'étal qui ne soit pas déjà occupé.");
+				System.out.println(chaine);
 			} else {
 				installerVendeur(nomVendeur);
 			}
@@ -37,21 +38,22 @@ public class BoundaryPrendreEtal {
 	}
 
 	private void installerVendeur(String nomVendeur) {
-		StringBuilder chaineQuestion = new StringBuilder();
-		chaineQuestion.append("C'est parfait, il me reste un étal pour vous !\n");
-		chaineQuestion.append("Il me faudrait quelques renseignements :\n");
-		chaineQuestion.append("Quel produit souhaitez-vous vendre ?");
-		String produit = Clavier.entrerChaine(chaineQuestion.toString());
+		StringBuilder chaine = new StringBuilder();
+		chaine.append("C'est parfait, il me reste un étal pour vous !\n");
+		chaine.append("Il me faudrait quelques renseignements : ");
+		System.out.println(chaine);
+		chaine.setLength(0);
+		String produit = Clavier.entrerChaine("Quel produit souhaitez-vous vendre ?");
 		int nbProduit = Clavier.entrerEntier("Combien souhaitez-vous en vendre ?");
 		int numeroEtal = controlPrendreEtal.prendreEtal(nomVendeur, produit, nbProduit);
 		if (numeroEtal != -1) {
-			StringBuilder chaineInstallation = new StringBuilder();
-			chaineInstallation.append("Le vendeur ");
-			chaineInstallation.append(nomVendeur);
-			chaineInstallation.append(" s'est installé à l'étal n°");
+			chaine.append("Le vendeur ");
+			chaine.append(nomVendeur);
+			chaine.append(" s'est installé à l'étal n°");
 			numeroEtal++;
-			chaineInstallation.append(numeroEtal);
-			System.out.println(chaineInstallation);
+			chaine.append(numeroEtal);
+			System.out.println(chaine);
+			chaine.setLength(0);
 		}
 	}
 }
