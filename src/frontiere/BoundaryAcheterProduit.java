@@ -10,6 +10,17 @@ public class BoundaryAcheterProduit {
 	}
 
 	public void acheterProduit(String nomAcheteur) {
-		// TODO Ã  completer
+		boolean acheteurReconnu = controlAcheterProduit.VerifierIdentite(nomAcheteur);
+		if (!acheteurReconnu) {
+			StringBuilder chaine = new StringBuilder();
+			chaine.append("Je suis désolée ");
+			chaine.append(nomAcheteur);
+			chaine.append(" mais il faut être un habitant de notre village pour commercer ici.");
+			System.out.println(chaine);
+		} else {
+			String produit = Clavier.entrerChaine("Quel produit voulez-vous acheter ?");
+			//TODO VerifProduit
+			
+		}
 	}
 }

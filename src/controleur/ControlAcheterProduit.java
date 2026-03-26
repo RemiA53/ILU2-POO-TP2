@@ -15,5 +15,13 @@ public class ControlAcheterProduit {
 		this.controlTrouverEtalVendeur = controlTrouverEtalVendeur;
 	}
 
-	//TODO a completer
+	public boolean VerifierIdentite(String nomAcheteur) {
+		return controlVerifierIdentite.verifierIdentite(nomAcheteur);
+	}
+	
+	public boolean ProduitVenduMarche(String produit) {
+		Gaulois[] vendeurs = village.rechercherVendeursProduit(produit);
+		
+	}
 }
+	
