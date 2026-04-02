@@ -17,7 +17,7 @@ class ControlEmmenagerTest {
 	public void initialiserSituation() {
 		System.out.println("Initialisation");
 		village = new Village("le village des irréductibles", 10, 5);
-		abraracourcix = new Chef("Abraracourcix", 0, village);
+		abraracourcix = new Chef("Abraracourcix", 1, village);
 		village.setChef(abraracourcix);
 	}
 		
@@ -31,20 +31,26 @@ class ControlEmmenagerTest {
 	void testIsHabitant() {
 		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
 		controlEmmenager.ajouterGaulois("Bonemine", 10);
-		assertTrue(controlEmmenager.isHabitant("Bonemine"), "Bonemine est habitante");
-		assertFalse(controlEmmenager.isHabitant("Qui ???"), "Qui ??? non habitant");
+		assertTrue(controlEmmenager.isHabitant("Bonemine"));
+		assertFalse(controlEmmenager.isHabitant("Qui ???"));
 		controlEmmenager.ajouterDruide("Panoramix", 10, 20, 30);
-		assertTrue(controlEmmenager.isHabitant("Panoramix"), "Panoramix est habitant");
+		assertTrue(controlEmmenager.isHabitant("Panoramix"));
 	}
 
 	@Test
 	void testAjouterDruide() {
-		fail("Not yet implemented");
+		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
+		assertTrue(village.trouverHabitant("Panoramix")==null);
+		controlEmmenager.ajouterDruide("Panoramix", 1, 0, 10);
+		assertTrue(village.trouverHabitant("Panoramix")!=null);
 	}
 
 	@Test
 	void testAjouterGaulois() {
-		fail("Not yet implemented");
+		ControlEmmenager controlEmmenager = new ControlEmmenager(village);
+		assertTrue(village.trouverHabitant("Bonemine")==null);
+		controlEmmenager.ajouterGaulois("Bonemine", 1);
+		assertTrue(village.trouverHabitant("Bonemine")!=null);
 	}
 	
 }
