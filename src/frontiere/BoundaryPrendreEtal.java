@@ -50,7 +50,6 @@ public class BoundaryPrendreEtal {
 			chaine.append("Le vendeur ");
 			chaine.append(nomVendeur);
 			chaine.append(" s'est installé à l'étal n°");
-			numeroEtal++;
 			chaine.append(numeroEtal);
 			System.out.println(chaine);
 			chaine.setLength(0);
